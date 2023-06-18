@@ -2,9 +2,22 @@
 import React from 'react';
 
 import '../styles/PhotoListItem.scss';
+import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = () => {
-  /* Insert React */
+
+const PhotoListItem = (props) => {
+
+
+  return (
+    <div className = 'photo-list__item'>
+      <PhotoFavButton
+        id = {props.id}
+        liked = {props.liked}
+        toggleFav = {props.toggleFav}
+      />
+      <img className = "photo-list__image" src={props.imageSource}></img>
+    </div>
+  )
 }
 
 PhotoListItem.defaultProps = {

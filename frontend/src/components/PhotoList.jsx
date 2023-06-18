@@ -1,11 +1,31 @@
 import React from 'react';
-
 import '../styles/PhotoList.scss';
+import PhotoListItem from './PhotoListItem';
 
-const PhotoList = () => {
-  <ul className="photo-list">
-    {/* Insert React */}
-  </ul>
+const PhotoList = (props) => {
+
+  const mappedPhotoList = props.photos.map((photo) => {
+    return (
+        <PhotoListItem 
+          id = {photo.id}
+          key = {photo.id}
+          location = {photo.location}
+          imageSource = {photo.urls.regular}
+          profile = {photo.user}
+          // array LikedId is splitted here to individual liked (boolean)
+          liked = {props.likedIds.includes(photo.id)}
+          toggleFav = {props.toggleFav}
+          //for modalality
+          openModal = {props.openModal}
+        />
+    )
+  });
+
+  return ( 
+    <ul className="photo-list">
+      {mappedPhotoList}
+    </ul>
+  )
 }
 
 PhotoList.defaultProps = {
