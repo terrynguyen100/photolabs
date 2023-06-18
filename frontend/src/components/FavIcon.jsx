@@ -1,4 +1,4 @@
-import {React, userState} from 'react';
+import {React} from 'react';
 
 export function FavIcon({
   width, height, fill, outlineWidth, stroke, displayAlert
@@ -11,7 +11,7 @@ export function FavIcon({
         fill={fill} stroke={stroke} strokeWidth={outlineWidth} strokeLinecap="round" strokeLinejoin="round"/>
       {
           !!displayAlert &&
-          <circle cx="21" cy="4" r="2.75" fill="#FFFF00" stroke="#C80000" strokeWidth="0.5"/>
+          <circle cx="21" cy="4" r="3.5" fill="#009150" stroke="#ffffff" strokeWidth="0.8"/>
       }
     </svg>
   );

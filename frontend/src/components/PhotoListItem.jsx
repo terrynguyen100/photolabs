@@ -9,6 +9,8 @@ const PhotoListItem = (props) => {
   const modalInput = {
     "id" : props.id,
     "fullUrl" : props.urls.full,
+    "user": props.user,
+    "location": props.location
   }
 
   return (
@@ -19,6 +21,13 @@ const PhotoListItem = (props) => {
         toggleFav = {props.toggleFav}
       />
       <img className = "photo-list__image" src={props.urls.regular} onClick={() => {props.toggleModal(modalInput)}}></img>
+      <div className='photo-list__user'>
+          <img className='photo-list__user-profile' src = {props.user.profile}/>
+          <div className='photo-list__user-details'>
+            <div className='photo-list__user-info'>{props.user.name}</div>
+            <div className='photo-list__user-location'>{props.location.city}, {props.location.country}</div>
+          </div>
+        </div>
     </div>
   )
 }
