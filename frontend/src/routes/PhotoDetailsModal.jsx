@@ -1,19 +1,15 @@
 import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
-
 //temporary photolist
 import photos from '../mocks/photos';
 import PhotoList from '../components/PhotoList';
-
-// const modalInput = {
-//   "id" : props.id,
-//   "fullUrl" : props.urls.full
-// }
-
+import PhotoFavButton from '../components/PhotoFavButton';
 
 export const PhotoDetailsModal = (props) => {
-  console.log(props)  ;
+  //filter out photos
+  const filteredPhotos = photos.filter((item) => item.id !== props.photoModalStatus.id);
+  console.log(props);
   return (
     <div className='photo-details-modal'>
       <div className='temp'>
@@ -32,13 +28,26 @@ export const PhotoDetailsModal = (props) => {
         </button>
       </div>
       <div className='photo-details-modal__body'>
-        <img className='photo-details-modal__image' src={props.photoModalStatus.fullUrl}></img>
+        <div>
+          <PhotoFavButton
+            id = {props.photoModalStatus.id}
+            liked = {props.photoModalStatus.liked}
+            toggleFav = {props.photoModalStatus.toggleFav}
+          />
+          <img className='photo-details-modal__image' src={props.photoModalStatus.fullUrl}></img>
+        </div>
         <div className='photo-details-modal__top-bar'>
           <label className='photo-details-modal__header'>Similar Photos</label>
           <div></div>
         </div>
         <div className='photo-details-modal__images'>
+          <PhotoList 
+            photos = {filteredPhotos}
+            likedIds = {props.likedIds}
+            toggleFav = {props.toggleFav}
 
+            toggleModal = {null}
+           />
         </div>
       </div>
     </div>

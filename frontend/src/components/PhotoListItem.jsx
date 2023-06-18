@@ -8,7 +8,9 @@ import PhotoFavButton from './PhotoFavButton';
 const PhotoListItem = (props) => {
   const modalInput = {
     "id" : props.id,
-    "fullUrl" : props.urls.full
+    "fullUrl" : props.urls.full,
+    "liked" : props.liked,
+    "toggleFav" : props.toggleFav
   }
 
   return (

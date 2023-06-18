@@ -5,23 +5,17 @@ import photos from '../mocks/photos';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  //temporarily set up the liked Ids as 1
-  const [likedIds, setLikedIds] = useState(["1"]);
-
-  const toggleFav = (id) => {
-    const newLikedIds = likedIds.includes(id) ? likedIds.filter((item) => item !== id) : [...likedIds, id];
-    setLikedIds(newLikedIds);
-  };
+  
 
   return (
   <div className="home-route">
     <TopNavigationBar
-      likedIds = {likedIds} 
+      likedIds = {props.likedIds} 
     />
     <PhotoList 
       photos = {photos} 
-      likedIds = {likedIds} 
-      toggleFav = {toggleFav}
+      likedIds = {props.likedIds} 
+      toggleFav = {props.toggleFav}
 
       toggleModal = {props.toggleModal}
     />
