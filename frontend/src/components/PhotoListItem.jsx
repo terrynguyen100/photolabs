@@ -6,7 +6,10 @@ import PhotoFavButton from './PhotoFavButton';
 
 
 const PhotoListItem = (props) => {
-
+  const modalInput = {
+    "id" : props.id,
+    "fullUrl" : props.urls.full
+  }
 
   return (
     <div className = 'photo-list__item'>
@@ -15,7 +18,7 @@ const PhotoListItem = (props) => {
         liked = {props.liked}
         toggleFav = {props.toggleFav}
       />
-      <img className = "photo-list__image" src={props.imageSource}></img>
+      <img className = "photo-list__image" src={props.urls.regular} onClick={() => {props.toggleModal(modalInput)}}></img>
     </div>
   )
 }

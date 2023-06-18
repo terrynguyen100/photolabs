@@ -7,16 +7,16 @@ const PhotoList = (props) => {
   const mappedPhotoList = props.photos.map((photo) => {
     return (
         <PhotoListItem 
+          key = {photo.id}  
           id = {photo.id}
-          key = {photo.id}
           location = {photo.location}
-          imageSource = {photo.urls.regular}
-          profile = {photo.user}
+          urls = {photo.urls}
+          user = {photo.user}
           // array LikedId is splitted here to individual liked (boolean)
           liked = {props.likedIds.includes(photo.id)}
           toggleFav = {props.toggleFav}
           //for modalality
-          openModal = {props.openModal}
+          toggleModal = {props.toggleModal}
         />
     )
   });
