@@ -14,6 +14,10 @@ const App = () => {
   const toggleModal = (modalInput) => {
     setPhotoModalStatus(modalInput);
   }
+  // const setPhotoModalStatus = {
+  //   "id" : props.id,
+  //   "fullUrl" : props.urls.full,
+  // }
 
   //-------------------FAVORITES / LIKEd --------------------
   const [likedIds, setLikedIds] = useState(["1"]);
@@ -31,7 +35,8 @@ const App = () => {
         toggleModal = {toggleModal}
       />
       {photoModalStatus && <PhotoDetailsModal
-        likedIds = {likedIds} 
+        likedIds = {likedIds}
+        liked = {likedIds.includes(photoModalStatus.id)}
         toggleFav = {toggleFav}
         photoModalStatus = {photoModalStatus}
         toggleModal = {toggleModal}

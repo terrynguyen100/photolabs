@@ -6,10 +6,9 @@ import photos from '../mocks/photos';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
-export const PhotoDetailsModal = (props) => {
+const PhotoDetailsModal = (props) => {
   //filter out photos
   const filteredPhotos = photos.filter((item) => item.id !== props.photoModalStatus.id);
-  console.log(props);
   return (
     <div className='photo-details-modal'>
       <div className='temp'>
@@ -31,8 +30,8 @@ export const PhotoDetailsModal = (props) => {
         <div>
           <PhotoFavButton
             id = {props.photoModalStatus.id}
-            liked = {props.photoModalStatus.liked}
-            toggleFav = {props.photoModalStatus.toggleFav}
+            liked = {props.liked}
+            toggleFav = {props.toggleFav}
           />
           <img className='photo-details-modal__image' src={props.photoModalStatus.fullUrl}></img>
         </div>
