@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 
 const initialState = {
-  favouritePhotoIds: ["1"],
+  favouritePhotoIds: [],
   photoModalStatus: false,
 };
 

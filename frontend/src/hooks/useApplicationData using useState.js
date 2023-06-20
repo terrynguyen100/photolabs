@@ -1,3 +1,6 @@
+//This file is for documentation purpose. It is similar to useApplicationData.js
+// but use useState instead of useReducer
+
 import { useState } from 'react';
 
 const useApplicationData = () => {

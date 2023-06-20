@@ -14,7 +14,9 @@ const TopNavigationBar = (props) => {
           topics = {props.topics}
           setPhotosEndPoint = {props.setPhotosEndPoint}
         />
-        <FavBadge isFavPhotoExist = {props.likedIds.length !== 0}/>
+        <FavBadge 
+          likedIds = {props.likedIds}
+        />
       </div>
     </div>
   )

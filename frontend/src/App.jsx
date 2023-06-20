@@ -23,6 +23,7 @@ const App = () => {
         setTopics(arrayOfResponse[1].data);
       });
   }, [photosEndPoint]);
+  //photosEndPoint is update whenever a category on navBar is clicked
 
   return (
     <div className="App">
