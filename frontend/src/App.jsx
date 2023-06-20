@@ -10,8 +10,7 @@ const App = () => {
   const [topics, setTopics] = useState([]);
   const [photosEndPoint, setPhotosEndPoint] = useState('/api/photos');
   const { state, toggleModal, toggleFav } = useApplicationData();
-  
-  console.log(photosEndPoint);
+
 
   useEffect(() => {
     const photosPromise = axios.get(photosEndPoint);
@@ -23,7 +22,7 @@ const App = () => {
         setPhotos(arrayOfResponse[0].data);
         setTopics(arrayOfResponse[1].data);
       });
-  }, []);
+  }, [photosEndPoint]);
 
   return (
     <div className="App">
