@@ -10,7 +10,8 @@ const HomeRoute = (props) => {
   <div className="home-route">
     <TopNavigationBar
       topics = {props.topics}
-      likedIds = {props.likedIds} 
+      likedIds = {props.likedIds}
+      setPhotosEndPoint = {props.setPhotosEndPoint} 
     />
     <PhotoList 
       photos = {props.photos} 

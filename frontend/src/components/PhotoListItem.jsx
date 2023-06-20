@@ -10,7 +10,8 @@ const PhotoListItem = (props) => {
     "id" : props.id,
     "fullUrl" : props.urls.full,
     "user": props.user,
-    "location": props.location
+    "location": props.location,
+    "similar_photos": props.similar_photos
   }
 
   return (

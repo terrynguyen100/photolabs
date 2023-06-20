@@ -7,8 +7,7 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  //filter out photos
-  const filteredPhotos = photos.filter((item) => item.id !== props.photoModalStatus.id);
+  console.log(props);
   return (
     <div className='photo-details-modal'>
       <button className='photo-details-modal__close-button' onClick={() => {props.toggleModal(false)}}>
@@ -47,7 +46,7 @@ const PhotoDetailsModal = (props) => {
         </div>
         <div className='photo-details-modal__images'>
           <PhotoList 
-            photos = {filteredPhotos}
+            photos = {props.photoModalStatus.similar_photos}
             likedIds = {props.likedIds}
             toggleFav = {props.toggleFav}
 

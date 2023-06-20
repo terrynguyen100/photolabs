@@ -3,7 +3,7 @@ import '../styles/PhotoList.scss';
 import PhotoListItem from './PhotoListItem';
 
 const PhotoList = (props) => {
-
+  console.log(props);
   const mappedPhotoList = props.photos.map((photo) => {
     return (
         <PhotoListItem 
@@ -12,6 +12,7 @@ const PhotoList = (props) => {
           location = {photo.location}
           urls = {photo.urls}
           user = {photo.user}
+          similar_photos = {photo.similar_photos}
           // array LikedId is splitted here to individual liked (boolean)
           liked = {props.likedIds.includes(photo.id)}
           toggleFav = {props.toggleFav}

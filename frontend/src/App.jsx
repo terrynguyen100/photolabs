@@ -1,15 +1,29 @@
-import {React, useState, useEffect} from 'react';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import HomeRoute from './components/HomeRoute';
-import PhotoDetailsModal from './routes/PhotoDetailsModal'
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import './App.scss';
 import useApplicationData from './hooks/useApplicationData';
-import photos from './mocks/photos';
-import topics from './mocks/topics'
-// Note: Rendering a single component to build components in isolation
-const App = () => {
 
+const App = () => {
+  const [photos, setPhotos] = useState([]);
+  const [topics, setTopics] = useState([]);
+  const [photosEndPoint, setPhotosEndPoint] = useState('/api/photos');
   const { state, toggleModal, toggleFav } = useApplicationData();
+  
+  console.log(photosEndPoint);
+
+  useEffect(() => {
+    const photosPromise = axios.get(photosEndPoint);
+    const topicsPromise = axios.get('/api/topics');
+    const promises = [photosPromise, topicsPromise];
+
+    Promise.all(promises)
+      .then((arrayOfResponse) => {
+        setPhotos(arrayOfResponse[0].data);
+        setTopics(arrayOfResponse[1].data);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -17,8 +31,9 @@ const App = () => {
         likedIds={state.favouritePhotoIds}
         toggleFav={toggleFav}
         toggleModal={toggleModal}
-        photos = {photos}
-        topics = {topics}
+        photos={photos}
+        topics={topics}
+        setPhotosEndPoint = {setPhotosEndPoint}
       />
       {state.photoModalStatus && (
         <PhotoDetailsModal
@@ -32,6 +47,5 @@ const App = () => {
     </div>
   );
 };
-  
 
-export default App
+export default App;
