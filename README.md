@@ -31,6 +31,7 @@ PhotoLabs is a client-side single-page application (SPA) built with React, allow
 - web-vitals
 
 #### Back-end
+- PostgreSQL
 - body-parser
 - cors
 - dotenv
